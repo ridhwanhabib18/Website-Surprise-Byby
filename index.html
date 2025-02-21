@@ -8,25 +8,36 @@
     <script defer src="script.js"></script>
 </head>
 <body>
-    <div class="container">
-        <h1>Selamat Ulang Tahun, Feby Putri Dwi Yulianti! 🎉</h1>
-        <h2>Dari: Muhammad Ridhwan Habib Abdillah</h2>
-        <p>Hari ini adalah hari istimewa, hari lahirmu di Bogor, 25 Februari 2025. Semoga semua impianmu terwujud! 💖</p>
-        
-        <h3>Puisi untukmu:</h3>
-        <p class="poem">
-            Di langit malam bertabur bintang,<br>
-            Cahaya kasih tak pernah hilang.<br>
-            Seperti cintaku yang tak pudar,<br>
-            Untukmu, Feby, kasih yang bersinar.
-        </p>
-        
-        <button id="playSong">Putar Lagu "Rewrite the Stars"</button>
-        <audio id="bgMusic" src="rewrite_the_stars.mp3"></audio>
+    <div id="giftBoxContainer">
+        <div id="giftBox" class="gift-box">
+            <p>Klik untuk membuka hadiah 🎁</p>
+        </div>
+    </div>
 
-        <h3>Mini Game: Seberapa Besar Cintamu?</h3>
-        <button id="loveGame">Coba Klik Aku!</button>
-        <p id="gameResult"></p>
+    <div id="mainContent" class="hidden">
+        <div class="container">
+            <h1>Selamat Ulang Tahun, Feby Putri Dwi Yulianti! 🎉</h1>
+            <h2>Dari: Muhammad Ridhwan Habib Abdillah</h2>
+            <p>Hari ini adalah hari istimewa, hari lahirmu di Bogor, 25 Februari 2025. Semoga semua impianmu terwujud! 💖</p>
+            
+            <h3>Puisi untukmu:</h3>
+            <p class="poem">
+                Di langit malam bertabur bintang,<br>
+                Cahaya kasih tak pernah hilang.<br>
+                Seperti cintaku yang tak pudar,<br>
+                Untukmu, Feby, kasih yang bersinar.
+            </p>
+            
+            <button id="playSong">Putar Lagu "Rewrite the Stars"</button>
+            <audio id="bgMusic" src="rewrite_the_stars.mp3"></audio>
+
+            <h3>Mini Game: Seberapa Besar Cintamu?</h3>
+            <button id="loveGame">Coba Klik Aku!</button>
+            <p id="gameResult"></p>
+
+            <h3>Foto Kenangan</h3>
+            <img id="couplePhoto" class="hidden" src="couple_sample.png" alt="Foto Feby dan Ridhwan">
+        </div>
     </div>
 
     <style>
@@ -63,6 +74,36 @@
         button:hover {
             background-color: #e91e63;
         }
+        .hidden {
+            display: none;
+        }
+        .gift-box {
+            width: 150px;
+            height: 150px;
+            background: url('gift-box.png') no-repeat center center/cover;
+            margin: 100px auto;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        #couplePhoto {
+            width: 250px;
+            height: auto;
+            border-radius: 15px;
+            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transform: scale(0.8);
+            transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+        }
+        #couplePhoto.show {
+            opacity: 1;
+            transform: scale(1);
+        }
     </style>
 
     <script>
@@ -86,6 +127,14 @@
             ];
             var randomMessage = loveMessages[Math.floor(Math.random() * loveMessages.length)];
             document.getElementById("gameResult").textContent = randomMessage;
+        });
+
+        document.getElementById("giftBox").addEventListener("click", function() {
+            this.style.display = "none";
+            document.getElementById("mainContent").classList.remove("hidden");
+            setTimeout(() => {
+                document.getElementById("couplePhoto").classList.add("show");
+            }, 500);
         });
     </script>
 </body>
