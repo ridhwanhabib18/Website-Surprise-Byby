@@ -6,6 +6,7 @@
     <title>Selamat Ulang Tahun Feby!</title>
     <link rel="stylesheet" href="style.css">
     <script defer src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.3.5/dist/confetti.browser.min.js"></script>
 </head>
 <body>
     <div id="giftBoxContainer">
@@ -36,7 +37,7 @@
             <p id="gameResult"></p>
 
             <h3>Foto Kenangan</h3>
-            <img id="couplePhoto" class="show" src="images/humans/f1.png" alt="Foto Feby dan Ridhwan">
+            <img id="couplePhoto" class="hidden" src="couple_sample.png" alt="Foto Feby dan Ridhwan">
         </div>
     </div>
 
@@ -135,6 +136,12 @@
             setTimeout(() => {
                 document.getElementById("couplePhoto").classList.add("show");
             }, 500);
+            
+            confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.6 }
+            });
         });
     </script>
 </body>
