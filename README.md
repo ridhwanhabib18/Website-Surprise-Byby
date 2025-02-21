@@ -3,7 +3,7 @@ Made this as a birthday present for my girlfriend during lockdown. Small attempt
 Sample screenshot of the application .
 ![GitHub Logo](/images/screenshots/sample.jpg)
 
-URL: http://suryakant261.github.io/
+URL: (https://ridhwanhabib18.github.io/Website-Surprise-Byby/)
 
 Technology Used: Javascript, CSS3, HTML5
 
